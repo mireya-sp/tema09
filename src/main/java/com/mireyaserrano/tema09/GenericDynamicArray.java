@@ -1,12 +1,10 @@
 package com.mireyaserrano.tema09;
 
-import java.rmi.NoSuchObjectException;
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.Spliterator;
-import java.util.function.Consumer;
+import java.util.NoSuchElementException;
 
-public class DynamicArray<T> implements Iterable<T>, Iterator<T> {
+public class GenericDynamicArray<T> implements Iterable<T>, Iterator<T> {
     private final static int DEFAULT_CAPACITY = 10;
 
     private final static float GROW_FACTOR = 2f;
@@ -16,9 +14,9 @@ public class DynamicArray<T> implements Iterable<T>, Iterator<T> {
     public int size;
     private int indexIterator;
 
-    public DynamicArray() { this(DEFAULT_CAPACITY); }
+    public GenericDynamicArray() { this(DEFAULT_CAPACITY); }
 
-    public DynamicArray(int capacity) {
+    public GenericDynamicArray(int capacity) {
         T[] temp = (T[]) new Object[capacity];
         data = temp;
         size = 0;
@@ -98,7 +96,7 @@ public class DynamicArray<T> implements Iterable<T>, Iterator<T> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        DynamicArray that = (DynamicArray)o ;
+        GenericDynamicArray that = (GenericDynamicArray)o ;
 
         if (size != that.size) return false;
 
@@ -179,6 +177,13 @@ public class DynamicArray<T> implements Iterable<T>, Iterator<T> {
 
     @Override
     public T next() {
-        return get(indexIterator++);
+        if (!hasNext()){
+            throw new NoSuchElementException("No vayas de listo");
+        }
+        T value;
+        do {
+            value = get(indexIterator++);
+        }while (value == null && hasNext());
+        return value;
     }
 }
