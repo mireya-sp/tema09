@@ -9,6 +9,10 @@ public class Cola<T> implements ICola{
         arrayList = new ArrayList<>();
     }
 
+    public Cola(int capacity){
+        arrayList = new ArrayList<>(capacity);
+    }
+
     @Override
     public boolean add(Object e) {
         return arrayList.add( (T)e );
@@ -16,7 +20,7 @@ public class Cola<T> implements ICola{
 
     @Override
     public Object remove() {
-        return arrayList.remove(arrayList.getLast());
+        return arrayList.remove(0);
     }
 
     @Override
@@ -26,7 +30,7 @@ public class Cola<T> implements ICola{
 
     @Override
     public Object peek() {
-        return arrayList.getFirst();
+        return arrayList.get(0);
     }
 
     @Override

@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Ejercicio01 {
+    /**
+     * Recorre el array dado y pone los números pares primeros y los impares después de los pares
+     * @param array El array en el que hay que ordenar los números
+     * @return un ArrayList con los números ordenados
+     */
     public static ArrayList<Integer> primeroParesDespuesImpares(int[] array){
         ArrayList<Integer> paresImpares = new ArrayList<>(array.length);
         for (int i = 0; i < array.length; i++) {
