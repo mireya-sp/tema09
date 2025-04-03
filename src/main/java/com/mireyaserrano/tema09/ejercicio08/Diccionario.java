@@ -21,12 +21,17 @@ public class Diccionario {
         if (diccionarioMap.containsKey(palabra)){
             diccionarioMap.put(palabra, definicion);
         }else {
-            throw new RuntimeException("No existe " + palabra + " en el diccionario");
+            System.err.println("No exsiste " + palabra + " en el diccionario");;
         }
     }
 
     public String buscar(String palabra) {
-        return diccionarioMap.get(palabra);
+        if (diccionarioMap.containsKey(palabra)) {
+            return diccionarioMap.get(palabra);
+        }else {
+            System.out.println("La palabra que buscas no se encuentra en el diccionario");
+        }
+        return palabra;
     }
 
     public List<String> getPalabras() {
@@ -42,7 +47,13 @@ public class Diccionario {
     }
 
     public void remove(String palabra){
-        diccionarioMap.remove(palabra);
+        if (diccionarioMap.containsKey(palabra)){
+            diccionarioMap.remove(palabra);
+        }else {
+            System.out.println("No se encuentra esta palabra en el diccionario");
+        }
+
+
     }
 
     public String getDiccionario(){
