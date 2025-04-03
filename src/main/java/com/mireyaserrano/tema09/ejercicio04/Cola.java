@@ -11,7 +11,7 @@ public class Cola<T> implements ICola{
 
     @Override
     public boolean add(Object e) {
-        return arrayList.add(e);
+        return arrayList.add( (T)e );
     }
 
     @Override
