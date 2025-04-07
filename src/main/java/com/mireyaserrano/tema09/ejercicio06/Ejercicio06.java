@@ -8,6 +8,9 @@ public class Ejercicio06 {
 
     private static ParejasPalabras parejas = new ParejasPalabras();
 
+    /**
+     * El menú principal del programa
+     */
     public static void menu() {
         System.out.println("MENÚ PRINCIPAL\n" +
                 "==============\n" +
@@ -32,6 +35,9 @@ public class Ejercicio06 {
         } while (opcion != 0);
     }
 
+    /**
+     * Método con el que se introducen parejas de palabras de inglés y valenciano
+     */
     public static void introducirParejas() {
         System.out.print("¿Cuántas parejas deseas introducir? ");
         int cantidad = Integer.parseInt(scanner.nextLine());
@@ -44,6 +50,9 @@ public class Ejercicio06 {
         }
     }
 
+    /**
+     * Metodo que busca la palabra en ingles en el Map mediante la key y devuelve la palabra en valenciano si existe
+     */
     private static void traducirPalabras() {
         System.out.print("Palabra a buscar: ");
         String palabraIn = scanner.nextLine();

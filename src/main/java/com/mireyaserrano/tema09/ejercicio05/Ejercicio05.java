@@ -5,6 +5,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Ejercicio05 {
+    /**
+     * Recorre el arrayList y almacena el paciente menor y el paciente mayor en un array
+     * @param pacientes El arrayList que hay que recorrer para encontrar el paciente menor y el mayor
+     * @return Un array que tiene en la primera posición, la posición en la que se encuentra el paciente menor, y en la segunda el mayor
+     */
     public static int[] majorMenor(ArrayList<Paciente> pacientes){
         int[] menorMayor = new int[2];
         for (int i = 0; i < pacientes.size(); i++) {
@@ -18,6 +23,11 @@ public class Ejercicio05 {
         return menorMayor;
     }
 
+    /**
+     * Recorre un ArrayList de Pacientes para contar cuantos hay de los distintos sexos
+     * @param pacientes El arrayList con pacientes que hay que recorrer
+     * @return Un array en el que la primera posición tiene la cantidad de hombres y la segunda posición la cantidad de mujeres
+     */
     public static int[] pacientsPerSexe(ArrayList<Paciente> pacientes){
         int[] porSexo = new int[2];
         for (int i = 0; i < pacientes.size(); i++) {

@@ -7,6 +7,9 @@ public class Ejercicio08 {
 
     private static Diccionario diccionario = new Diccionario();
 
+    /**
+     * Menú principal del programa
+     */
     public static void menu() {
         System.out.println("***********************\n" +
                 "* GESTIÓN DICCIONARIO *\n" +
@@ -39,6 +42,9 @@ public class Ejercicio08 {
         } while (opcion != 0);
     }
 
+    /**
+     * Añadir palabra y definicion de la palabra en el diccionario
+     */
     private static void anyadirPalabra() {
         System.out.println("Introduce la palabra a añadir");
         String palabra = scanner.nextLine();
@@ -47,6 +53,9 @@ public class Ejercicio08 {
         diccionario.add(palabra, definicion);
     }
 
+    /**
+     * Modificar la definición de una palabra
+     */
     private static void modificarPalabra() {
         System.out.println("Introduce la palabra a modificar");
         String palabra = scanner.nextLine();
@@ -55,12 +64,18 @@ public class Ejercicio08 {
         diccionario.set(palabra, definicion);
     }
 
+    /**
+     * Eliminar una palabra y su definición del diccionario
+     */
     private static void eliminarPalabra() {
         System.out.println("Introduce la palabra a añadir");
         String palabra = scanner.nextLine();
         diccionario.remove(palabra);
     }
 
+    /**
+     * Buscar una palabra y su definición en el diccionario
+     */
     private static void consultarPalabra() {
         System.out.println("Introduce la palabra a buscar");
         String palabra = scanner.nextLine();

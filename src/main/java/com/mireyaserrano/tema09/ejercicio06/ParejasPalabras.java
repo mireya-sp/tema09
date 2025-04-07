@@ -10,6 +10,12 @@ public class ParejasPalabras {
         palabrasMap = new HashMap<>();
     }
 
+    /**
+     * Añade parejas de palabras en inglés y valenciano
+     * @param palabraIn La palabra en inglés
+     * @param palabraVal La palabra en valenciano
+     * @throws KeyAlreadyExistsException
+     */
     public void add(String palabraIn, String palabraVal) throws KeyAlreadyExistsException {
         if (palabrasMap.containsKey(palabraIn)){
             throw new KeyAlreadyExistsException("Ya existe una palabra asociada a " + palabraIn);
@@ -17,6 +23,11 @@ public class ParejasPalabras {
         palabrasMap.put(palabraIn, palabraVal);
     }
 
+    /**
+     * Cambia la palabra en valenciano para su pareja en inglés
+     * @param palabraIn La palabra en inglés
+     * @param palabraVal La palabra en valenciano nueva
+     */
     public void set(String palabraIn, String palabraVal){
         if (palabrasMap.containsKey(palabraIn)){
             palabrasMap.put(palabraIn, palabraVal);
@@ -25,6 +36,11 @@ public class ParejasPalabras {
         }
     }
 
+    /**
+     * Busca la pareja de una palabra en inglés
+     * @param palabra La alabra en inglés que quieres buscar en valenciano
+     * @return la palabra en valenciano
+     */
     public String buscar(String palabra) {
         return palabrasMap.get(palabra);
     }

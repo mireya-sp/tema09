@@ -10,6 +10,12 @@ public class Diccionario {
         diccionarioMap = new HashMap<>();
     }
 
+    /**
+     * Añadir palabras y su definición al diccionario
+     * @param palabra La palabra a añadir
+     * @param definicion La definición de la palabra
+     * @throws KeyAlreadyExistsException
+     */
     public void add(String palabra, String definicion) throws KeyAlreadyExistsException {
         if (diccionarioMap.containsKey(palabra)){
             throw new KeyAlreadyExistsException("Ya existe una palabra asociada a " + palabra);
@@ -17,6 +23,11 @@ public class Diccionario {
         diccionarioMap.put(palabra, definicion);
     }
 
+    /**
+     * Cambia la definición de una alabra en el diccionario
+     * @param palabra La palabra a la que hay que cambiar la definición
+     * @param definicion La nueva definición de la palabra
+     */
     public void set(String palabra, String definicion){
         if (diccionarioMap.containsKey(palabra)){
             diccionarioMap.put(palabra, definicion);
@@ -25,6 +36,11 @@ public class Diccionario {
         }
     }
 
+    /**
+     * Busca la definición de una palabra
+     * @param palabra La palabra de la que queremos buscar la definición
+     * @return La definición de la palabra
+     */
     public String buscar(String palabra) {
         if (diccionarioMap.containsKey(palabra)) {
             return diccionarioMap.get(palabra);
@@ -56,6 +72,10 @@ public class Diccionario {
 
     }
 
+    /**
+     * Recorre el diccionario y lo mete en el stringBuilder
+     * @return el string con todos los datos del diccionario, listo para imprimirlo
+     */
     public String getDiccionario(){
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, String> pareja: diccionarioMap.entrySet()){

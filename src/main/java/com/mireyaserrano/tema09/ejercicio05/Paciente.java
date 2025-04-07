@@ -53,16 +53,27 @@ public class Paciente {
         return peso;
     }
 
+    /**
+     * Consigue la edad a partir de la fecha de nacimiento de los Pacientes
+     * @return La edad del paciente
+     */
     public int getEdad(){
         LocalDate now = LocalDate.now();
         Period periodo = Period.between(fechaNac, now);
         return periodo.getYears();
     }
 
+    /**
+     * Calcula el índice de masa corporal del paciente
+     * @return el IMC del paciente
+     */
     public double getIMC(){
         return peso / (altura*altura);
     }
 
+    /**
+     * El enum de los mensajes según el IMC
+     */
     private enum Mensaje{
         I("Peso insuficeinte"),
         N("Peso normal"),
@@ -78,6 +89,10 @@ public class Paciente {
         public String toString() {return texto;}
     }
 
+    /**
+     * El método que devuelve los diferentes mensajes según el IMC del paciente
+     * @return Mensaje según IMC del paciente
+     */
     public Mensaje segunIMC(){
         double imc = getIMC();
         if (imc < 18.5 ){
