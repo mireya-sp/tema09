@@ -25,6 +25,26 @@ public class CentroEducativo {
         return codigo;
     }
 
+    public ArrayList<Alumno> getAlumnos() {
+        return alumnos;
+    }
+
+    public ArrayList<Grupo> getGrupos() {
+        return grupos;
+    }
+
+    public ArrayList<Aula> getAulas() {
+        return aulas;
+    }
+
+    public ArrayList<Asignatura> getAsignaturas() {
+        return asignaturas;
+    }
+
+    public ArrayList<Profesor> getProfesores() {
+        return profesores;
+    }
+
     public boolean nuevoAlumno(String nombre, Grupo grupo) {
         return alumnos.add(new Alumno(nombre, grupo));
     }
@@ -45,15 +65,25 @@ public class CentroEducativo {
         return false;
     }
 
-    public boolean nuevaAula(int codigo, double metrosCuadrados){
+    public int nuevaAula(int codigo, double metrosCuadrados){
+        int posicion;
         for (int i = 0; i < aulas.size(); i++) {
             if (aulas.get(i).getCodigo() == codigo){
-                return false;
+                return -1;
             }
         }
-        return aulas.add(new Aula(codigo, metrosCuadrados));
+        posicion = aulas.size();
+        aulas.add(new Aula(codigo, metrosCuadrados));
+        return posicion;
     }
 
+    /**
+     *
+     * @param dni
+     * @param nombre
+     * @param sueldo
+     * @return La posición en la se guarda el profe
+     */
     public boolean nuevoProfesor(String dni, String nombre, int sueldo){
         for (int i = 0; i < profesores.size(); i++) {
             if (profesores.get(i).getDni().equals(dni)){
@@ -61,6 +91,7 @@ public class CentroEducativo {
             }
         }
         return profesores.add(new Profesor(dni, nombre, sueldo));
+
     }
 
     public boolean bajaAlumno(int id) {
@@ -112,8 +143,25 @@ public class CentroEducativo {
 
     public Grupo buscarGrupoPorCodigo(int codigo) {
         for (Grupo grupo : grupos) {
-            if (grupo.getCodigo() == codigo)
-                return grupo;
+            if (grupo.getCodigo() == codigo) return grupo;
+        }
+        return null;
+    }
+
+    public Asignatura buscarAsignaturaPorCodigo(int codigo){
+        for (int i = 0; i < asignaturas.size(); i++){
+            if (asignaturas.get(i).getCodigo() == codigo){
+                return asignaturas.get(i);
+            }
+        }
+        return null;
+    }
+
+    public Profesor buscarProfesorPorDNI(String dni){
+        for (int i = 0; i < profesores.size(); i++) {
+            if (profesores.get(i).getDni().equals(dni)){
+                return profesores.get(i);
+            }
         }
         return null;
     }
